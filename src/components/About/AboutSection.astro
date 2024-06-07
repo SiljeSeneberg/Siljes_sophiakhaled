@@ -21,12 +21,17 @@ import Sophia from "../../img/about/SophiaSkygge.png";
       <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
     </div>
 
-    <div class="click_3">
-      <p class="lead">
+    <div class="click_3 hide">
+      <p class="lead posNote">
         Sophia Khaled is a Copenhagen based fashion brand known for its playful,
         yet sinister aesthetic. The universe is built out of creating duality
         between childhood melancholy and an undertone of darkness.
       </p>
+    </div>
+
+    <div class="click_4">
+      <p class="subheading caps">Scroll down now</p>
+      <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
     </div>
   </div>
 </section>
@@ -43,6 +48,7 @@ import Sophia from "../../img/about/SophiaSkygge.png";
   .container {
     position: relative;
   }
+
   img.sophia {
     aspect-ratio: 1/1.25;
     object-fit: cover;
@@ -53,6 +59,10 @@ import Sophia from "../../img/about/SophiaSkygge.png";
     width: 300px;
     height: auto;
   }
+  img.arrow {
+    width: 35px;
+    height: auto;
+  }
 
   .a {
     top: 13%;
@@ -60,18 +70,35 @@ import Sophia from "../../img/about/SophiaSkygge.png";
     z-index: -2;
   }
   .b {
-    top: 65%;
+    top: 50%;
     left: 14%;
   }
 
   p.lead {
     background-image: url(../../img/about/GreenNote.png);
     padding: var(--top_btm);
+    /*     position: absolute;
+    top: -10%; */
   }
-
-  .click_1 {
+  .posNote {
+  }
+  /*   .click_1 {
   }
   .click_2 {
+    
+  }
+  .click_3 {
+    position: relative;
+  } */
+  .click_4 {
+    position: absolute;
+    background-color: var(--background-color);
+    padding: var(--top_btm);
+    gap: var(--medium);
+    /* align-items: center;
+    justify-items: center; */
+    top: 40%;
+    left: 25%;
   }
   .hide {
     display: none;
