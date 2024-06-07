@@ -2,25 +2,78 @@
 import ScribbleButton from "../Basics/buttons/ScribbleButton.astro";
 
 import { Image } from "astro:assets";
-import Sophia from "../../../img/about/Sophia-godkval.png";
+import Sophia from "../../img/about/SophiaSkygge.png";
 ---
 
 <section>
-  <ScribbleButton>Click here</ScribbleButton>
-
-  <div>
-    <div>
+  <ScribbleButton href="" label="Click here" />
+  <div class="container">
+    <div class="click_1">
+      <div>
         <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
-        <p class="filter">I’m the designer and creator </p>
+        <p class="filter">I'm the designer and creator</p>
+      </div>
+      <Image src={Sophia} alt="Sophia" class="sophia" />
     </div>
-    <Image src={Sophia} alt="Sophia" />
+
+    <div class="click_2">
+      <img src="/strokes/wings.svg" alt="" class="svg a" />
+      <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
+    </div>
+
+    <div class="click_3">
+      <p class="lead">
+        Sophia Khaled is a Copenhagen based fashion brand known for its playful,
+        yet sinister aesthetic. The universe is built out of creating duality
+        between childhood melancholy and an undertone of darkness.
+      </p>
+    </div>
   </div>
 </section>
-¨
+
 <style>
-    img{
-        aspect-ratio: 1/1;
-        object-position: 0% 50%;
-        object-fit: cover;
-    }
+  section {
+    display: grid;
+    gap: var(--medium);
+    align-items: center;
+    justify-items: center;
+    padding: var(--top_btm) var(--none);
+  }
+
+  .container {
+    position: relative;
+  }
+  img.sophia {
+    aspect-ratio: 1/1.25;
+    object-fit: cover;
+  }
+
+  img.svg {
+    position: absolute;
+    width: 300px;
+    height: auto;
+  }
+
+  .a {
+    top: 13%;
+    left: 14%;
+    z-index: -2;
+  }
+  .b {
+    top: 65%;
+    left: 14%;
+  }
+
+  p.lead {
+    background-image: url(../../img/about/GreenNote.png);
+    padding: var(--top_btm);
+  }
+
+  .click_1 {
+  }
+  .click_2 {
+  }
+  .hide {
+    display: none;
+  }
 </style>
