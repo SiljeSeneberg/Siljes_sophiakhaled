@@ -8,8 +8,8 @@ import TapedImage from "../Basics/img/TapedImage.astro";
 <section>
   <div>
     <div>
-      <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
-      <p class="filter">I'm the designer and creator</p>
+      <h1 class="subheading_scribble">My name is Katrine</h1>
+      <p class="filter">I'm the co-designer</p>
     </div>
     <div class="margin_img">
       <TapedImage src={Katrine} alt="Katrine" size="width: 350px;" />
@@ -46,7 +46,7 @@ import TapedImage from "../Basics/img/TapedImage.astro";
     position: absolute;
     top: 50%;
   }
-  .margin_img{
+  .margin_img {
     margin-top: 1rem;
   }
   p {
@@ -56,8 +56,20 @@ import TapedImage from "../Basics/img/TapedImage.astro";
     margin-top: 2rem;
     margin-bottom: 3rem;
   }
-  @media (min-width: 630px) {
-  }
   @media (min-width: 960px) {
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      position: relative;
+      margin-bottom: 4rem;
+    }
+
+    .stroke {
+      position: absolute;
+      top: 55%;
+      width: 700px;
+    }
   }
 </style>

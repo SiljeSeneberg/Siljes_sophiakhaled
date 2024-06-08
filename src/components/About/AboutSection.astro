@@ -56,15 +56,16 @@ const { data } = Astro.props;
     <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
   </div>
 
-  <!-- <div>
-    <Photobooth data={data} cariant=""/>
-  </div> -->
-
   <div class="click_6">
     <Image src={Princess} alt="Sailor moon princess dress" />
   </div>
   <div class="click_7">
+    <h2 class="subheading_scribble">Miav, I'm Yoda</h2>
     <Image src={Cat} alt="Cat" />
+  </div>
+
+  <div class="click_8">
+    <img src="/illustrations/Krone.svg" alt="" class="svg c" />
   </div>
 </section>
 
@@ -74,14 +75,15 @@ const { data } = Astro.props;
     gap: var(--medium);
     align-items: center;
     justify-items: center;
-    padding: var(--top_btm) var(--none);
+    padding: var(--top_btm) 0;
   }
 
   .container {
     position: relative;
   }
+
   img.sophia {
-    aspect-ratio: 1/1.25;
+    aspect-ratio: 1 / 1.25;
     object-fit: cover;
     max-width: 600px;
   }
@@ -91,26 +93,28 @@ const { data } = Astro.props;
     max-width: 300px;
     height: auto;
   }
+
   img.arrow {
     width: 35px;
     height: auto;
   }
+
   .a {
     top: 30%;
     left: 14%;
     z-index: -2;
   }
+
   .b {
     top: 70%;
     left: 14%;
   }
+
   .note {
     background-image: url(../../img/about/GreenNote.png);
     padding: var(--top_btm);
-    line-height:;
     width: 330px;
-    margin-top: 3rem;
-    margin-bottom: 5rem;
+    margin: 3rem 0 5rem;
   }
 
   p {
@@ -118,118 +122,258 @@ const { data } = Astro.props;
   }
 
   .click_4 {
-    margin-top: 3rem;
-    margin-bottom: 5rem;
+    margin: 3rem 0 5rem;
   }
+
   .click_5 {
     display: grid;
     gap: var(--medium);
     text-align: center;
     justify-items: center;
-    margin-top: 5rem;
-    margin-bottom: 10rem;
+    margin: 5rem 0 10rem;
   }
+
   .click_6,
-  .click_7 {
+  .click_7,
+  .click_8 {
     display: none;
   }
-  .hide {
+  /* 
+@media (min-width: 630px) {
+  section {
+    gap: -100px;
+  }
+
+  img.svg {
+    position: relative;
+  }
+
+  .a {
+    top: 30%;
+    left: -1%;
+    z-index: -2;
+  }
+
+  .b {
+    top: 65%;
+    left: 1%;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .btn {
+    margin-top: -4rem;
+    margin-block-end: auto;
+  }
+
+  .click_1 {
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  .click_2 {
+    grid-area: 1 / 1 / 3 / 2;
+    margin-top: 3.25rem;
+  }
+
+  .click_3 {
+    grid-area: 1 / 3 / 3 / 4;
+  }
+
+  .note {
+    margin: 0;
+  }
+
+  .click_4 {
+    grid-area: 3 / 2 / 4 / 3;
+    margin-top: -9rem;
+  }
+
+  .click_5 {
+    grid-area: 1 / 2 / 2 / 3;
+    margin: 0;
+  }
+
+  .click_6 {
+    display: block;
+    grid-area: 2 / 3 / 4 / 4;
+    margin: 0;
+    position: absolute;
+  }
+
+  .click_7,
+  .click_8 {
     display: none;
   }
-  @media (min-width: 630px) {
-    img.svg {
-      position: relative;
-    }
-    .a {
-      top: 30%;
-      left: -1%;
-      z-index: -2;
-    }
-    .b {
-      top: 65%;
-      left: 1%;
-    }
-    .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .btn {
-      margin-top: -4rem;
-      margin-block-end: auto;
-    }
-    .click_1 {
-      grid-area: 1 / 1 / 3 / 2;
-    }
-    .click_2 {
-      grid-area: 1 / 1 / 3 / 2;
-      margin-top: 3.25rem;
-    }
-    .click_3 {
-      grid-area: 1 / 3 / 3 / 4;
-    }
-    .note {
-      margin: 0;
-    }
-    .click_4 {
-      grid-area: 3 / 2 / 4 / 3;
-      margin-top: -9rem;
-    }
-    .click_5 {
-      grid-area: 1 / 2 / 2 / 3;
-      margin: 0;
-    }
-    .click_6 {
-      grid-area: 2 / 3 / 4 / 4;
-      margin: 0;
-      position: absolute;
-    }
-  }
+}
+ */
   @media (min-width: 960px) {
+    .click_7 {
+      display: block;
+    }
+
+    .click_8 {
+      display: block;
+      grid-area: 1 / 3 / 2 / 4;
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      rotate: -70deg;
+    }
+  }
+  section {
+    display: grid;
+    gap: var(--medium);
+    align-items: center;
+    justify-items: center;
+    padding: var(--top_btm) 0;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  img.sophia {
+    aspect-ratio: 1 / 1.25;
+    object-fit: cover;
+    max-width: 600px;
+  }
+
+  img.svg {
+    position: absolute;
+    max-width: 300px;
+    height: auto;
+  }
+
+  img.arrow {
+    width: 35px;
+    height: auto;
+  }
+
+  .a {
+    top: 30%;
+    left: 14%;
+    z-index: -2;
+  }
+
+  .b {
+    top: 70%;
+    left: 14%;
+  }
+
+  .note {
+    background-image: url(../../img/about/GreenNote.png);
+    padding: var(--top_btm);
+    width: 330px;
+    margin: 3rem 0 5rem;
+  }
+
+  p {
+    width: 330px;
+  }
+
+  .click_4 {
+    margin: 3rem 0 5rem;
+  }
+
+  .click_5 {
+    display: grid;
+    gap: var(--medium);
+    text-align: center;
+    justify-items: center;
+    margin: 5rem 0 10rem;
+  }
+
+  .click_6,
+  .click_7,
+  .click_8 {
+    display: none;
+  }
+
+  @media (min-width: 630px) {
+    section {
+      gap: -100px;
+    }
+
     img.svg {
       position: relative;
     }
+
     .a {
       top: 30%;
       left: -1%;
       z-index: -2;
     }
+
     .b {
       top: 65%;
       left: 1%;
     }
+
     .container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
+
     .btn {
       margin-top: -4rem;
       margin-block-end: auto;
     }
+
     .click_1 {
       grid-area: 1 / 1 / 3 / 2;
     }
+
     .click_2 {
       grid-area: 1 / 1 / 3 / 2;
       margin-top: 3.25rem;
     }
+
     .click_3 {
       grid-area: 1 / 3 / 3 / 4;
     }
+
     .note {
       margin: 0;
     }
+
     .click_4 {
       grid-area: 3 / 2 / 4 / 3;
       margin-top: -9rem;
     }
+
     .click_5 {
       grid-area: 1 / 2 / 2 / 3;
       margin: 0;
     }
+
     .click_6 {
+      display: block;
       grid-area: 2 / 3 / 4 / 4;
       margin: 0;
       position: absolute;
+    }
+
+    .click_7,
+    .click_8 {
+      display: none;
+    }
+  }
+
+  @media (min-width: 960px) {
+    .click_7 {
+      display: block;
+    }
+
+    .click_8 {
+      display: block;
+      grid-area: 1 / 3 / 2 / 4;
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      rotate: -70deg;
     }
   }
 </style>
