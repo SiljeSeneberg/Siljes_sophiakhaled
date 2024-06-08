@@ -12,7 +12,7 @@ const { data } = Astro.props;
 
 <section class="container">
   <div class="btn">
-    <ScribbleButton href="" label="Click here" id="Button"/>
+    <ScribbleButton href="" label="Click here" id="Button" />
   </div>
 
   <div class="click_1 hide">
@@ -99,7 +99,8 @@ const { data } = Astro.props;
     height: auto;
   }
 
-  .a, .b {
+  .a,
+  .b {
     left: 14%;
   }
 
@@ -135,10 +136,13 @@ const { data } = Astro.props;
     margin: 5rem 0 10rem;
   }
 
-  .click_6, .click_7, .click_8, .hide {
+  .click_6,
+  .click_7,
+  .click_8,
+  .hide {
     display: none;
   }
-  .hide{
+  .hide {
     display: none;
   }
 
@@ -178,7 +182,8 @@ const { data } = Astro.props;
       margin-top: -4rem;
     }
 
-    .click_1, .click_2 {
+    .click_1,
+    .click_2 {
       grid-area: 1 / 1 / 3 / 2;
     }
 
@@ -190,7 +195,8 @@ const { data } = Astro.props;
       grid-area: 1 / 3 / 3 / 4;
     }
 
-    .note, .click_5 {
+    .note,
+    .click_5 {
       margin: 0;
     }
 
@@ -208,7 +214,8 @@ const { data } = Astro.props;
       position: absolute;
     }
 
-    .click_7, .click_8 {
+    .click_7,
+    .click_8 {
       display: block;
     }
 
@@ -223,19 +230,19 @@ const { data } = Astro.props;
 </style>
 
 <script>
-  window.onload = function() {
-    const btn = document.querySelector('#button');
-    const click1 = document.querySelector('.click_1');
-    const click2 = document.querySelector('.click_2');
+  window.onload = function () {
+    const btn = document.querySelector("#button");
+    const click1 = document.querySelector(".click_1");
+    const click2 = document.querySelector(".click_2");
 
-    btn.addEventListener('click', function() {
-      if (click1.classList.contains('hide')) {
-        click1.classList.remove('hide');
-        click2.classList.add('hide');
+    btn.addEventListener("click", function () {
+      if (click1.classList.contains("hide")) {
+        click1.classList.remove("hide");
+        click2.classList.add("hide");
       } else {
-        click1.classList.add('hide');
-        click2.classList.remove('hide');
+        click1.classList.add("hide");
+        click2.classList.remove("hide");
       }
     });
-  }
+  };
 </script>
