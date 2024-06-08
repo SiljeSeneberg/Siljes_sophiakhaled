@@ -1,14 +1,21 @@
 ---
 import ScribbleButton from "../Basics/buttons/ScribbleButton.astro";
+import Photobooth from "../Basics/img/Photobooth.astro";
 
 import { Image } from "astro:assets";
 import Sophia from "../../img/about/SophiaSkygge.png";
+import Princess from "../../img/index/hero_outline.png";
+import Cat from "../../img/about/cat.png";
+
+const { data } = Astro.props;
 ---
 
 <section class="container">
-  <ScribbleButton href="" label="Click here" class="btn" />
+  <div class="btn">
+    <ScribbleButton href="" label="Click here" />
+  </div>
 
-  <div class="click_1 hide">
+  <div class="click_1">
     <div>
       <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
       <p class="filter">I'm the designer and creator</p>
@@ -16,12 +23,12 @@ import Sophia from "../../img/about/SophiaSkygge.png";
     <Image src={Sophia} alt="Sophia" class="sophia" />
   </div>
 
-  <div class="click_2 hide">
+  <div class="click_2">
     <img src="/strokes/wings.svg" alt="" class="svg a" />
     <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
   </div>
 
-  <div class="click_3 ">
+  <div class="click_3">
     <p class="polaroid note">
       Sophia Khaled is a Copenhagen based fashion brand known for its playful,
       yet sinister aesthetic. The universe is built out of creating duality
@@ -29,7 +36,7 @@ import Sophia from "../../img/about/SophiaSkygge.png";
     </p>
   </div>
 
-  <div class="click_4 hide">
+  <div class="click_4">
     <p>
       Our spirit of the time is about using this duality in our prints and
       patterns as including and developing elements for people in our society.
@@ -44,9 +51,20 @@ import Sophia from "../../img/about/SophiaSkygge.png";
     </p>
   </div>
 
-  <div class="click_5 hide">
+  <div class="click_5">
     <p class="subheading caps">Scroll down now</p>
     <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
+  </div>
+
+  <!-- <div>
+    <Photobooth data={data} cariant=""/>
+  </div> -->
+
+  <div class="click_6">
+    <Image src={Princess} alt="Sailor moon princess dress" />
+  </div>
+  <div class="click_7">
+    <Image src={Cat} alt="Cat" />
   </div>
 </section>
 
@@ -106,9 +124,14 @@ import Sophia from "../../img/about/SophiaSkygge.png";
   .click_5 {
     display: grid;
     gap: var(--medium);
+    text-align: center;
     justify-items: center;
     margin-top: 5rem;
     margin-bottom: 10rem;
+  }
+  .click_6,
+  .click_7 {
+    display: none;
   }
   .hide {
     display: none;
@@ -123,7 +146,7 @@ import Sophia from "../../img/about/SophiaSkygge.png";
       z-index: -2;
     }
     .b {
-      top: 60%;
+      top: 65%;
       left: 1%;
     }
     .container {
@@ -131,21 +154,82 @@ import Sophia from "../../img/about/SophiaSkygge.png";
       grid-template-columns: 1fr 1fr 1fr;
     }
     .btn {
-      grid-area: 1 / 2 / 4 / 3;
+      margin-top: -4rem;
+      margin-block-end: auto;
     }
     .click_1 {
-      grid-area: 1 / 1 / 4 / 2;
+      grid-area: 1 / 1 / 3 / 2;
     }
     .click_2 {
-      grid-area: 1 / 1 / 2 / 2;
+      grid-area: 1 / 1 / 3 / 2;
+      margin-top: 3.25rem;
     }
     .click_3 {
-      grid-area: 1 /3 / 2 / 4;
+      grid-area: 1 / 3 / 3 / 4;
+    }
+    .note {
+      margin: 0;
     }
     .click_4 {
+      grid-area: 3 / 2 / 4 / 3;
+      margin-top: -9rem;
+    }
+    .click_5 {
       grid-area: 1 / 2 / 2 / 3;
+      margin: 0;
+    }
+    .click_6 {
+      grid-area: 2 / 3 / 4 / 4;
+      margin: 0;
+      position: absolute;
     }
   }
   @media (min-width: 960px) {
+    img.svg {
+      position: relative;
+    }
+    .a {
+      top: 30%;
+      left: -1%;
+      z-index: -2;
+    }
+    .b {
+      top: 65%;
+      left: 1%;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .btn {
+      margin-top: -4rem;
+      margin-block-end: auto;
+    }
+    .click_1 {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+    .click_2 {
+      grid-area: 1 / 1 / 3 / 2;
+      margin-top: 3.25rem;
+    }
+    .click_3 {
+      grid-area: 1 / 3 / 3 / 4;
+    }
+    .note {
+      margin: 0;
+    }
+    .click_4 {
+      grid-area: 3 / 2 / 4 / 3;
+      margin-top: -9rem;
+    }
+    .click_5 {
+      grid-area: 1 / 2 / 2 / 3;
+      margin: 0;
+    }
+    .click_6 {
+      grid-area: 2 / 3 / 4 / 4;
+      margin: 0;
+      position: absolute;
+    }
   }
 </style>
