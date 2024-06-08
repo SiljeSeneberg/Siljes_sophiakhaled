@@ -198,3 +198,8 @@ p.polaroid {
   font-size: var(--polaroid-label-size);
   line-height: var(--polaroid-label-line);
 }
+
+p.note{
+  font-size: var(--note-text-size);
+  line-height: var(--note-text-line);
+}

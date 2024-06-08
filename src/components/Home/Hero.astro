@@ -1,167 +1,176 @@
 ---
+import Polaroid from "../Basics/img/Polaroid.astro";
+import TapedImage from "../Basics/img/TapedImage.astro";
+import ImgOutline from "./Hero/ImgOutline.astro";
 
-import Polaroid from "../Basics/img/Polaroid.astro"
-import TapedImage from "../Basics/img/TapedImage.astro"
-import ImgOutline from "./Hero/ImgOutline.astro"
-
-const {data} = Astro.props
+const { data } = Astro.props;
 ---
 
 <section class="break_main">
-    <article>
-        <div class="img_container">
-            <div class="hero_img"><Polaroid src={data.hero[1]} alt="" variant="tall top" /></div>
-            <div class="hero_img"><TapedImage src={data.hero[2]} alt="" /></div>
-            <div class="hero_img"><Polaroid src={data.hero[0]} alt="" variant="tall top" /></div>
+  <article>
+    <div class="img_container">
+      <div class="hero_img">
+        <Polaroid src={data.hero[1]} alt="" variant="tall top" />
+      </div>
+      <div class="hero_img"><TapedImage src={data.hero[2]} alt="" /></div>
+      <div class="hero_img">
+        <Polaroid src={data.hero[0]} alt="" variant="tall top" />
+      </div>
     </div>
-    <img src="/strokes/hero_path.svg" alt="" class="stroke">
+    <img src="/strokes/hero_path.svg" alt="" class="stroke" />
     <div class="outline">
-        <ImgOutline />
+      <ImgOutline />
     </div>
     <header>
-        <h1 class="display">{data.title}</h1>
-        <h2 class="subheading">{data.caption}</h2>
+      <h1 class="display">{data.title}</h1>
+      <h2 class="subheading">{data.caption}</h2>
     </header>
-    </article>   
+  </article>
 </section>
 
 <style define:vars={{ image: `url("/backgrounds/checkeredbg.svg")` }}>
+  section {
+    display: grid;
+    grid-template-columns:
+      minmax(var(--side), 1fr) minmax(var(--content-min), var(--content-max))
+      minmax(var(--side), 1fr);
+    background-image: linear-gradient(
+        rgba(245, 243, 242, 0.4),
+        rgba(245, 243, 242, 0.6)
+      ),
+      var(--image);
+    background-size: cover;
+    background-repeat: repeat-x;
+    overflow-x: clip;
+    margin-bottom: 6rem;
+  }
+
+  article {
+    grid-column: 2;
+    display: grid;
+    gap: var(--large);
+    padding: var(--top_btm) var(--none);
+    position: relative;
+  }
+
+  header {
+    display: grid;
+    gap: var(--small);
+    padding: var(--small) var(--none);
+    justify-content: end;
+  }
+
+  .img_container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: var(--top_btm) var(--none);
+  }
+
+  .outline,
+  .stroke {
+    position: absolute;
+  }
+
+  .outline {
+    display: none;
+    z-index: 50;
+  }
+
+  .stroke {
+    width: 251px;
+    left: -2rem;
+    bottom: -3rem;
+    z-index: 50;
+  }
+
+  /* HERO IMAGES + ANIMATION */
+
+  .hero_img {
+    opacity: 0;
+    scale: 1.1;
+    transition: all 0.15s ease-in;
+  }
+
+  .hero_img:nth-child(1) {
+    transition-delay: 1s;
+  }
+
+  .hero_img:nth-child(2) {
+    transition-delay: 3.5s;
+  }
+
+  .hero_img:nth-child(1),
+  .hero_img:nth-child(2) {
+    display: none;
+  }
+
+  .pop {
+    opacity: 1;
+    scale: 1;
+  }
+
+  .hero_img:nth-child(1).pop {
+    transform: rotate(6deg);
+  }
+
+  .hero_img:nth-child(3).pop {
+    transform: rotate(-8deg);
+  }
+
+  @media (min-width: 630px) {
     section {
-        display: grid;
-        grid-template-columns:
-            minmax(var(--side), 1fr) minmax(var(--content-min), var(--content-max))
-            minmax(var(--side), 1fr);
-        background-image: linear-gradient(rgba(245, 243, 242, .4), rgba(245, 243, 242, .6)), var(--image);
-        background-size:cover;
-        background-repeat: repeat-x;
-        overflow-x: clip;
-        margin-bottom: 6rem;
+      background-size: contain;
     }
 
+    .hero_img:nth-child(1),
+    .hero_img:nth-child(2) {
+      display: block;
+    }
+
+    .hero_img:nth-child(2) {
+      width: 80%;
+    }
+
+    .hero_img:nth-child(1),
+    .hero_img:nth-child(3) {
+      position: absolute;
+      min-width: 200px;
+      max-width: 352px;
+      width: 40%;
+    }
+
+    .hero_img:nth-child(3) {
+      right: 0;
+      transition-delay: 2.5s;
+    }
+
+    .stroke {
+      width: 400px;
+      bottom: -4.25rem;
+    }
+  }
+
+  @media (min-width: 960px) {
     article {
-        grid-column: 2;
-        display: grid;
-        gap: var(--large);
-        padding: var(--top_btm) var(--none);
-        position: relative;
+      padding-left: 200px;
     }
-
-    header {
-        display: grid;
-        gap: var(--small);
-        padding: var(--small) var(--none);
-        justify-content: end;
-    }
-
-    .img_container {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        padding: var(--top_btm) var(--none);
-    }
-
-    .outline, .stroke {
-        position: absolute;
-    }
-
     .outline {
-        display: none;
-        z-index: 50;
-    }    
-
-    .stroke {
-        width: 251px;
-        left: -2rem;
-        bottom: -3rem;
-        z-index: 50;
-    }
-
-    /* HERO IMAGES + ANIMATION */
-
-    .hero_img {
-        opacity: 0;
-        scale: 1.1;
-        transition: all .15s ease-in;
-    }
-
-    .hero_img:nth-child(1) {
-        transition-delay: 1s;
-    }
-
-    .hero_img:nth-child(2) {
-        transition-delay: 4s;
-    }
-
-    .hero_img:nth-child(1), .hero_img:nth-child(2) {
-        display: none;
-    }
-    
-    .pop {
-        opacity: 1;
-        scale: 1;
-    }
-
-    .hero_img:nth-child(1).pop {
-        transform: rotate(6deg);
-    }
-
-    .hero_img:nth-child(3).pop {
-        transform:rotate(-8deg)
-    }
-
-    @media (min-width: 630px) {
-
-        section {
-            background-size: contain;
-        }
-
-        .hero_img:nth-child(1), .hero_img:nth-child(2) {
-        display: block;
-    }
-
-    .hero_img:nth-child(2) {
-        width: 80%;
-    }
-
-        .hero_img:nth-child(1), .hero_img:nth-child(3) {
-        position: absolute;
-        min-width: 200px;
-        max-width: 352px;
-        width: 40%;
-    }
-
-        .hero_img:nth-child(3) {
-        right: 0;
-        transition-delay: 2.5s;
+      display: block;
+      width: 336px;
+      left: -2rem;
+      bottom: 12rem;
     }
 
     .stroke {
-        width: 400px;
-        bottom: -4.25rem;
-    }
+      width: 636px;
+      left: -4rem;
+      bottom: -1.5rem;
     }
 
-    @media (min-width: 960px) {
-
-        article {
-            padding-left: 200px;
-        }
-        .outline {
-            display: block;
-            width: 336px;
-            left: -2rem;
-            bottom: 12rem;
-        }
-
-        .stroke {
-            width: 636px;
-            left: -4rem;
-            bottom: -1.5rem;
-        }
-
-        .hero_img:nth-child(1), .hero_img:nth-child(3) {
-        width: 30%;
+    .hero_img:nth-child(1),
+    .hero_img:nth-child(3) {
+      width: 30%;
     }
-    }
-    
+  }
 </style>

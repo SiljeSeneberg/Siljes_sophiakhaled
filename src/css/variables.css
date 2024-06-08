@@ -72,6 +72,8 @@
   --item-label-line: 1.5rem;
   --polaroid-label-size: 1rem;
   --polaroid-label-line: 1.5rem;
+  --note-text-size: 1.5rem;
+  --note-text-line: 2.25rem;
 }
 
 @media (min-width: 630px) {

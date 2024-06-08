@@ -5,34 +5,48 @@ import { Image } from "astro:assets";
 import Sophia from "../../img/about/SophiaSkygge.png";
 ---
 
-<section>
-  <ScribbleButton href="" label="Click here" />
-  <div class="container">
-    <div class="click_1">
-      <div>
-        <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
-        <p class="filter">I'm the designer and creator</p>
-      </div>
-      <Image src={Sophia} alt="Sophia" class="sophia" />
-    </div>
+<section class="container">
+  <ScribbleButton href="" label="Click here" class="btn" />
 
-    <div class="click_2">
-      <img src="/strokes/wings.svg" alt="" class="svg a" />
-      <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
+  <div class="click_1 hide">
+    <div>
+      <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
+      <p class="filter">I'm the designer and creator</p>
     </div>
+    <Image src={Sophia} alt="Sophia" class="sophia" />
+  </div>
 
-    <div class="click_3 hide">
-      <p class="lead posNote">
-        Sophia Khaled is a Copenhagen based fashion brand known for its playful,
-        yet sinister aesthetic. The universe is built out of creating duality
-        between childhood melancholy and an undertone of darkness.
-      </p>
-    </div>
+  <div class="click_2 hide">
+    <img src="/strokes/wings.svg" alt="" class="svg a" />
+    <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
+  </div>
 
-    <div class="click_4">
-      <p class="subheading caps">Scroll down now</p>
-      <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
-    </div>
+  <div class="click_3 ">
+    <p class="polaroid note">
+      Sophia Khaled is a Copenhagen based fashion brand known for its playful,
+      yet sinister aesthetic. The universe is built out of creating duality
+      between childhood melancholy and an undertone of darkness.
+    </p>
+  </div>
+
+  <div class="click_4 hide">
+    <p>
+      Our spirit of the time is about using this duality in our prints and
+      patterns as including and developing elements for people in our society.
+      To create an outlet that talks to those feeling left alone, comforting
+      them and supplying them with a place to belong with no shame of any
+      emotions.
+    </p>
+    <p>
+      Sophia Khaled works in a cross field between art and fashion. Through
+      craftsmanship, they strive to create an original way of wearing treasures
+      with the kind of magic that makes people hold on to them forever.
+    </p>
+  </div>
+
+  <div class="click_5 hide">
+    <p class="subheading caps">Scroll down now</p>
+    <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
   </div>
 </section>
 
@@ -48,59 +62,90 @@ import Sophia from "../../img/about/SophiaSkygge.png";
   .container {
     position: relative;
   }
-
   img.sophia {
     aspect-ratio: 1/1.25;
     object-fit: cover;
+    max-width: 600px;
   }
 
   img.svg {
     position: absolute;
-    width: 300px;
+    max-width: 300px;
     height: auto;
   }
   img.arrow {
     width: 35px;
     height: auto;
   }
-
   .a {
-    top: 13%;
+    top: 30%;
     left: 14%;
     z-index: -2;
   }
   .b {
-    top: 50%;
+    top: 70%;
     left: 14%;
   }
-
-  p.lead {
+  .note {
     background-image: url(../../img/about/GreenNote.png);
     padding: var(--top_btm);
-    /*     position: absolute;
-    top: -10%; */
+    line-height:;
+    width: 330px;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
   }
-  .posNote {
+
+  p {
+    width: 330px;
   }
-  /*   .click_1 {
-  }
-  .click_2 {
-    
-  }
-  .click_3 {
-    position: relative;
-  } */
+
   .click_4 {
-    position: absolute;
-    background-color: var(--background-color);
-    padding: var(--top_btm);
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+  .click_5 {
+    display: grid;
     gap: var(--medium);
-    /* align-items: center;
-    justify-items: center; */
-    top: 40%;
-    left: 25%;
+    justify-items: center;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
   }
   .hide {
     display: none;
+  }
+  @media (min-width: 630px) {
+    img.svg {
+      position: relative;
+    }
+    .a {
+      top: 30%;
+      left: -1%;
+      z-index: -2;
+    }
+    .b {
+      top: 60%;
+      left: 1%;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .btn {
+      grid-area: 1 / 2 / 4 / 3;
+    }
+    .click_1 {
+      grid-area: 1 / 1 / 4 / 2;
+    }
+    .click_2 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .click_3 {
+      grid-area: 1 /3 / 2 / 4;
+    }
+    .click_4 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+  }
+  @media (min-width: 960px) {
   }
 </style>

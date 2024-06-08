@@ -1,2 +1,63 @@
 ---
+import { Image } from "astro:assets";
+import Katrine from "../../img/about/katrine.png";
+
+import TapedImage from "../Basics/img/TapedImage.astro";
 ---
+
+<section>
+  <div>
+    <div>
+      <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
+      <p class="filter">I'm the designer and creator</p>
+    </div>
+    <div class="margin_img">
+      <TapedImage src={Katrine} alt="Katrine" size="width: 350px;" />
+    </div>
+  </div>
+
+  <img src="/strokes/strokeGreen.svg" alt="stroke" class="stroke" />
+
+  <div class="margin_p">
+    <p>
+      Everything is handmade in Denmark, and we wish to create an inclusive and
+      colorful world of wearables where our customers can be a part of our
+      fairytale with all its twists and turns. Sophia Khaled is inspired by
+      everything from pop cultural phenomena, old gothic objects, childhood
+      memorabilia, and abandoned teddy bears. We build every collection around
+      the figurative hand knitted pieces that we are well known for, while
+      adding new materials to compliment the knit and create the duality that we
+      find important in our storytelling.
+    </p>
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: var(--large);
+    align-items: center;
+    justify-items: center;
+    padding: var(--top_btm) var(--none);
+    position: relative;
+  }
+
+  .stroke {
+    position: absolute;
+    top: 50%;
+  }
+  .margin_img{
+    margin-top: 1rem;
+  }
+  p {
+    width: 330px;
+  }
+  .margin_p {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  @media (min-width: 630px) {
+  }
+  @media (min-width: 960px) {
+  }
+</style>
