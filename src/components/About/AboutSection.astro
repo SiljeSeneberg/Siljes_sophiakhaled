@@ -5,17 +5,17 @@ import Photobooth from "../Basics/img/Photobooth.astro";
 import { Image } from "astro:assets";
 import Sophia from "../../img/about/SophiaSkygge.png";
 import Princess from "../../img/index/hero_outline.png";
-import Cat from "../../img/about/cat.png";
+import Cat from "../../img/about/Cat.png";
 
 const { data } = Astro.props;
 ---
 
 <section class="container">
   <div class="btn">
-    <ScribbleButton href="" label="Click here" />
+    <ScribbleButton href="" label="Click here" id="Button"/>
   </div>
 
-  <div class="click_1">
+  <div class="click_1 hide">
     <div>
       <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
       <p class="filter">I'm the designer and creator</p>
@@ -23,7 +23,7 @@ const { data } = Astro.props;
     <Image src={Sophia} alt="Sophia" class="sophia" />
   </div>
 
-  <div class="click_2">
+  <div class="click_2 hide">
     <img src="/strokes/wings.svg" alt="" class="svg a" />
     <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
   </div>
@@ -75,7 +75,7 @@ const { data } = Astro.props;
     gap: var(--medium);
     align-items: center;
     justify-items: center;
-    padding: var(--top_btm) 0;
+    padding: var(--top_btm) var(--none);
   }
 
   .container {
@@ -85,7 +85,7 @@ const { data } = Astro.props;
   img.sophia {
     aspect-ratio: 1 / 1.25;
     object-fit: cover;
-    max-width: 600px;
+    max-width: 450px;
   }
 
   img.svg {
@@ -99,15 +99,17 @@ const { data } = Astro.props;
     height: auto;
   }
 
-  .a {
-    top: 30%;
+  .a, .b {
     left: 14%;
+  }
+
+  .a {
+    top: 13%;
     z-index: -2;
   }
 
   .b {
-    top: 70%;
-    left: 14%;
+    top: 30%;
   }
 
   .note {
@@ -133,170 +135,25 @@ const { data } = Astro.props;
     margin: 5rem 0 10rem;
   }
 
-  .click_6,
-  .click_7,
-  .click_8 {
+  .click_6, .click_7, .click_8, .hide {
     display: none;
   }
-  /* 
-@media (min-width: 630px) {
-  section {
-    gap: -100px;
-  }
-
-  img.svg {
-    position: relative;
-  }
-
-  .a {
-    top: 30%;
-    left: -1%;
-    z-index: -2;
-  }
-
-  .b {
-    top: 65%;
-    left: 1%;
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .btn {
-    margin-top: -4rem;
-    margin-block-end: auto;
-  }
-
-  .click_1 {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-
-  .click_2 {
-    grid-area: 1 / 1 / 3 / 2;
-    margin-top: 3.25rem;
-  }
-
-  .click_3 {
-    grid-area: 1 / 3 / 3 / 4;
-  }
-
-  .note {
-    margin: 0;
-  }
-
-  .click_4 {
-    grid-area: 3 / 2 / 4 / 3;
-    margin-top: -9rem;
-  }
-
-  .click_5 {
-    grid-area: 1 / 2 / 2 / 3;
-    margin: 0;
-  }
-
-  .click_6 {
-    display: block;
-    grid-area: 2 / 3 / 4 / 4;
-    margin: 0;
-    position: absolute;
-  }
-
-  .click_7,
-  .click_8 {
-    display: none;
-  }
-}
- */
-  @media (min-width: 960px) {
-    .click_7 {
-      display: block;
-    }
-
-    .click_8 {
-      display: block;
-      grid-area: 1 / 3 / 2 / 4;
-      position: absolute;
-      top: -30%;
-      left: -30%;
-      rotate: -70deg;
-    }
-  }
-  section {
-    display: grid;
-    gap: var(--medium);
-    align-items: center;
-    justify-items: center;
-    padding: var(--top_btm) 0;
-  }
-
-  .container {
-    position: relative;
-  }
-
-  img.sophia {
-    aspect-ratio: 1 / 1.25;
-    object-fit: cover;
-    max-width: 600px;
-  }
-
-  img.svg {
-    position: absolute;
-    max-width: 300px;
-    height: auto;
-  }
-
-  img.arrow {
-    width: 35px;
-    height: auto;
-  }
-
-  .a {
-    top: 30%;
-    left: 14%;
-    z-index: -2;
-  }
-
-  .b {
-    top: 70%;
-    left: 14%;
-  }
-
-  .note {
-    background-image: url(../../img/about/GreenNote.png);
-    padding: var(--top_btm);
-    width: 330px;
-    margin: 3rem 0 5rem;
-  }
-
-  p {
-    width: 330px;
-  }
-
-  .click_4 {
-    margin: 3rem 0 5rem;
-  }
-
-  .click_5 {
-    display: grid;
-    gap: var(--medium);
-    text-align: center;
-    justify-items: center;
-    margin: 5rem 0 10rem;
-  }
-
-  .click_6,
-  .click_7,
-  .click_8 {
+  .hide{
     display: none;
   }
 
   @media (min-width: 630px) {
-    section {
-      gap: -100px;
+    .a {
+      left: 30%;
+      z-index: -2;
     }
 
+    .b {
+      left: 28%;
+    }
+  }
+
+  @media (min-width: 960px) {
     img.svg {
       position: relative;
     }
@@ -308,7 +165,7 @@ const { data } = Astro.props;
     }
 
     .b {
-      top: 65%;
+      top: 70%;
       left: 1%;
     }
 
@@ -319,15 +176,13 @@ const { data } = Astro.props;
 
     .btn {
       margin-top: -4rem;
-      margin-block-end: auto;
     }
 
-    .click_1 {
+    .click_1, .click_2 {
       grid-area: 1 / 1 / 3 / 2;
     }
 
     .click_2 {
-      grid-area: 1 / 1 / 3 / 2;
       margin-top: 3.25rem;
     }
 
@@ -335,7 +190,7 @@ const { data } = Astro.props;
       grid-area: 1 / 3 / 3 / 4;
     }
 
-    .note {
+    .note, .click_5 {
       margin: 0;
     }
 
@@ -346,29 +201,18 @@ const { data } = Astro.props;
 
     .click_5 {
       grid-area: 1 / 2 / 2 / 3;
-      margin: 0;
     }
 
     .click_6 {
-      display: block;
       grid-area: 2 / 3 / 4 / 4;
-      margin: 0;
       position: absolute;
     }
 
-    .click_7,
-    .click_8 {
-      display: none;
-    }
-  }
-
-  @media (min-width: 960px) {
-    .click_7 {
+    .click_7, .click_8 {
       display: block;
     }
 
     .click_8 {
-      display: block;
       grid-area: 1 / 3 / 2 / 4;
       position: absolute;
       top: -30%;
@@ -377,3 +221,21 @@ const { data } = Astro.props;
     }
   }
 </style>
+
+<script>
+  window.onload = function() {
+    const btn = document.querySelector('#button');
+    const click1 = document.querySelector('.click_1');
+    const click2 = document.querySelector('.click_2');
+
+    btn.addEventListener('click', function() {
+      if (click1.classList.contains('hide')) {
+        click1.classList.remove('hide');
+        click2.classList.add('hide');
+      } else {
+        click1.classList.add('hide');
+        click2.classList.remove('hide');
+      }
+    });
+  }
+</script>
