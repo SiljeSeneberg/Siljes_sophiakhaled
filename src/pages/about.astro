@@ -3,36 +3,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import AboutSection from "../components/About/AboutSection.astro";
 import AboutSectionTo from "../components/About/AboutSectionTo.astro";
 import GetInspired from "../components/About/GetInspired.astro";
-
-/* import Sophia from "../img/about/sophia.png";
-import Katrine from "../img/about/katrine.png"; */
-
-/* const about = [
-  {
-    title: "Sophia Khaled is a Copenhagen based fashion brand",
-    body: [
-      "Known for its playful, yet sinister aesthetic. The universe is built out of creating duality between childhood melancholy and an undertone of darkness.",
-      "Our spirit of the time is about using this duality in our prints and patterns as including and developing elements for people in our society. To create an outlet that talks to those feeling left alone, comforting them and supplying them with a place to belong with no shame of any emotions.",
-      "Sophia Khaled works in a cross field between art and fashion. Through craftsmanship, they strive to create an original way of wearing treasures with the kind of magic that makes people hold on to them forever.",
-    ],
-    img: Sophia,
-    alt: "Sophia Khaled",
-    style: "transform: translateX(-50%)",
-    variant: "primary",
-  },
-  {
-    lead: "Between light and darkness, good and evil or dream and reality",
-    body: [
-      "Everything is handmade in Denmark, and we wish to create an inclusive and colorful world of wearables where our customers can be a part of our fairytale with all its twists and turns.",
-      "Sophia Khaled is inspired by everything from pop cultural phenomena, old gothic objects, childhood memorabilia, and abandoned teddy bears.",
-      "We build every collection around the figurative hand knitted pieces that we are well known for, while adding new materials to compliment the knit and create the duality that we find important in our storytelling.",
-    ],
-    img: Katrine,
-    alt: "Katrine",
-    style: "transform: translateX(-50%) rotate(2deg)",
-    variant: "secondary",
-  },
-]; */
 ---
 
 <MainLayout>
@@ -40,3 +10,47 @@ import Katrine from "../img/about/katrine.png"; */
   <AboutSectionTo />
   <GetInspired />
 </MainLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const elements = [
+      document.getElementById("click_1"),
+      document.getElementById("click_2"),
+      document.getElementById("click_3"),
+      document.getElementById("click_4"),
+      document.getElementById("click_5"),
+    ];
+
+    let currentIndex = 0;
+    let firstClick = true;
+
+    const toggleButton = document
+      .getElementById("toggleButton")
+      .querySelector("a");
+
+    toggleButton.addEventListener("click", (event) => {
+      event.preventDefault(); // Forhindre standard klik handling
+
+      if (firstClick) {
+        firstClick = false;
+        elements[1].classList.remove("hide"); // Vis click_2 ved første klik
+      } else {
+        // Skjul aktuelt element
+        if (currentIndex < elements.length) {
+          elements[currentIndex].classList.add("hide");
+        }
+
+        // Skjul click_2 ved andet klik
+        if (currentIndex == 0) {
+          console.log("nummer2");
+          elements[0].classList.add("hide");
+          elements[1].classList.add("hide");
+        }
+
+        // Vis næste element
+        currentIndex = (currentIndex + 1) % elements.length;
+        elements[currentIndex].classList.remove("hide");
+      }
+    });
+  });
+</script>

@@ -1,21 +1,17 @@
 ---
 import ScribbleButton from "../Basics/buttons/ScribbleButton.astro";
-import Photobooth from "../Basics/img/Photobooth.astro";
-
 import { Image } from "astro:assets";
 import Cat from "../../img/about/cat.png";
 import Sophia from "../../img/about/SophiaSkygge.png";
 import Princess from "../../img/index/hero_outline.png";
-
-const { data } = Astro.props;
 ---
 
 <section class="container">
-  <div class="btn">
-    <ScribbleButton href="" label="Click here" id="Button" />
+  <div id="toggleButton" class="btn">
+    <ScribbleButton href="#" label="Click here" />
   </div>
 
-  <div class="click_1">
+  <div id="click_1">
     <div>
       <h1 class="subheading_scribble">My name is Sophia Khaled</h1>
       <p class="filter">I'm the designer and creator</p>
@@ -23,12 +19,12 @@ const { data } = Astro.props;
     <Image src={Sophia} alt="Sophia" class="sophia" />
   </div>
 
-  <div class="click_2 ">
+  <div id="click_2" class="hide">
     <img src="/strokes/wings.svg" alt="" class="svg a" />
     <img src="/strokes/col02_scratch.svg" alt="" class="svg b" />
   </div>
 
-  <div class="click_3">
+  <div id="click_3" class="hide">
     <p class="polaroid note">
       Sophia Khaled is a Copenhagen based fashion brand known for its playful,
       yet sinister aesthetic. The universe is built out of creating duality
@@ -36,7 +32,7 @@ const { data } = Astro.props;
     </p>
   </div>
 
-  <div class="click_4">
+  <div id="click_4" class="hide">
     <p>
       Our spirit of the time is about using this duality in our prints and
       patterns as including and developing elements for people in our society.
@@ -51,20 +47,20 @@ const { data } = Astro.props;
     </p>
   </div>
 
-  <div class="click_5">
+  <div class="hide" id="click_5" >
     <p class="subheading caps">Scroll down now</p>
     <img src="/strokes/Arrow.svg" alt="arrow" class="arrow" />
   </div>
 
-  <div class="click_6">
+  <div id="click_6">
     <Image src={Princess} alt="Sailor moon princess dress" />
   </div>
-  <div class="click_7">
+  <div id="click_7">
     <h2 class="subheading_scribble">Miav, I'm Yoda</h2>
     <Image src={Cat} alt="Cat" />
   </div>
 
-  <div class="click_8">
+  <div id="click_8">
     <img src="/illustrations/Krone.svg" alt="" class="svg c" />
   </div>
 </section>
@@ -105,12 +101,12 @@ const { data } = Astro.props;
   }
 
   .a {
-    top: 13%;
+    top: 21%;
     z-index: -2;
   }
 
   .b {
-    top: 30%;
+    top: 50%;
   }
 
   .note {
@@ -124,11 +120,11 @@ const { data } = Astro.props;
     width: 330px;
   }
 
-  .click_4 {
+  #click_4 {
     margin: 3rem 0 5rem;
   }
 
-  .click_5 {
+  #click_5 {
     display: grid;
     gap: var(--medium);
     text-align: center;
@@ -136,10 +132,9 @@ const { data } = Astro.props;
     margin: 5rem 0 10rem;
   }
 
-  .click_6,
-  .click_7,
-  .click_8,
-  .hide {
+  #click_6,
+  #click_7,
+  #click_8 {
     display: none;
   }
   .hide {
@@ -147,14 +142,9 @@ const { data } = Astro.props;
   }
 
   @media (min-width: 630px) {
-    .a {
-      left: 30%;
-      z-index: -2;
-    }
-
-    .b {
-      left: 28%;
-    }
+ #click_2{
+  display: none;
+ }
   }
 
   @media (min-width: 960px) {
@@ -178,48 +168,53 @@ const { data } = Astro.props;
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .btn {
-      margin-top: -4rem;
+   .btn {
+      margin-top: -12rem;
     }
 
-    .click_1,
-    .click_2 {
+    #click_1,
+    #click_2 {
+      display: block;
       grid-area: 1 / 1 / 3 / 2;
     }
 
-    .click_2 {
+    #click_2 {
+      display: block;
       margin-top: 3.25rem;
     }
 
-    .click_3 {
+    #click_3 {
+      display: block;
       grid-area: 1 / 3 / 3 / 4;
     }
 
-    .note,
-    .click_5 {
+    .note {
       margin: 0;
     }
 
-    .click_4 {
+    #click_4 {
+      display: block;
       grid-area: 3 / 2 / 4 / 3;
       margin-top: -9rem;
     }
 
-    .click_5 {
+    #click_5 {
       grid-area: 1 / 2 / 2 / 3;
+      margin: 0;
     }
 
-    .click_6 {
+    #click_6 {
+      display: block;
       grid-area: 2 / 3 / 4 / 4;
       position: absolute;
     }
 
-    .click_7,
-    .click_8 {
+    #click_7 {
       display: block;
     }
 
-    .click_8 {
+    #click_8 {
+      display: block;
       grid-area: 1 / 3 / 2 / 4;
       position: absolute;
       top: -30%;
@@ -228,21 +223,3 @@ const { data } = Astro.props;
     }
   }
 </style>
-
-<script>
-  window.onload = function () {
-    const btn = document.querySelector("#button");
-    const click1 = document.querySelector(".click_1");
-    const click2 = document.querySelector(".click_2");
-
-    btn.addEventListener("click", function () {
-      if (click1.classList.contains("hide")) {
-        click1.classList.remove("hide");
-        click2.classList.add("hide");
-      } else {
-        click1.classList.add("hide");
-        click2.classList.remove("hide");
-      }
-    });
-  };
-</script>
