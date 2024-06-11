@@ -43,6 +43,7 @@ import GetInspired from "../components/About/GetInspired.astro";
         // Vis næste element
         currentIndex = (currentIndex + 1) % elements.length;
         elements[currentIndex].classList.remove("hide");
+        elements[1].classList.add("hide");
       }
     });
   });
