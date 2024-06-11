@@ -39,14 +39,7 @@ import GetInspired from "../components/About/GetInspired.astro";
         if (currentIndex < elements.length) {
           elements[currentIndex].classList.add("hide");
         }
-
-        // Skjul click_2 ved andet klik
-        if (currentIndex == 0) {
-          console.log("nummer2");
-          elements[0].classList.add("hide");
-          elements[1].classList.add("hide");
-        }
-
+ 
         // Vis næste element
         currentIndex = (currentIndex + 1) % elements.length;
         elements[currentIndex].classList.remove("hide");
